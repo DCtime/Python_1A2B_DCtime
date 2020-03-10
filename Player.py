@@ -6,6 +6,7 @@ class Player(Entity):
     def __init__(self, name):
         self.__name = name
         self.__ans = None
+        print(self.__name, "Entered the game")
 
     def guess(self):
         self.__ans = input()
