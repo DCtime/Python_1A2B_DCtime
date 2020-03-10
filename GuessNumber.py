@@ -1,4 +1,5 @@
 import random
+import time
 
 
 class GuessNumber:
@@ -42,6 +43,8 @@ class GuessNumber:
 
         print("format: Okay")
         print("----- [", self.__a, "A", self.__b, "B", "] -----")
+        print()
+        time.sleep(random.randint(1, 2))
 
     # getter and setter
     def get_a(self):

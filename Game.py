@@ -1,22 +1,37 @@
 from GuessNumber import GuessNumber
 import random
+import time
 
 
 class Game:
+    show_join_counter = 0
 
-    def __init__(self, *players):
+    def __init__(self, players):
         self.guess = GuessNumber()
         self.__players = []
         self.__current = None
+        self.__players = players
 
-        for i in players:
-            self.__players.append(i)
-            print(i.get_name(), "Joined the Game")
+        for i in self.__players:
+            print(i.get_name(), end='')
+
+            Game.show_join_counter += 1
+
+            if Game.show_join_counter != len(self.__players):
+                print(", ", end='')
+
+        print()
+
+        print("Joined the game")
+        print()
+        time.sleep(random.randint(1, 2))
 
     def start(self):
         # make question
         print("making question...")
         self.guess.make_question()
+        print()
+        time.sleep(random.randint(1, 2))
 
         # start
         while 1:
@@ -48,3 +63,6 @@ class Game:
     def end(self):
         print(self.__players[self.__current].get_name(), "Wins")
         print("Game Over")
+        time.sleep(random.randint(1, 2))
+        print("The Game will shut down in 5 sec")
+        time.sleep(5)
