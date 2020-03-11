@@ -4,11 +4,22 @@ import time
 
 class GuessNumber:
     def __init__(self):
+        # __question : str
+        # store the question which make_question makes
         self.__question = None
+
+        # __a : int
+        # store the current players a's
         self.__a = None
+
+        # __b : int
+        # store the current players b's
         self.__b = None
 
     def make_question(self):
+        """ return a question for 1A2B """
+        # check the question if its the right format:
+        # the numbers can not repeat, and the first number can not be zero
         while 1:
             self.__question = random.randint(1000, 9999)
             self.__question = str(self.__question)
@@ -16,10 +27,11 @@ class GuessNumber:
                 if self.__question[0] != 0:
                     break
         print("Question Ready")
-        print("del:", self.__question)
+        # print("del:", self.__question)   # for debug, show the answer of the round
         return self.__question
 
     def check_ans(self, ans):
+        """ print things, and change the __a's and __b's value """
 
         # check format
         if len(set(ans)) != 4 or ans[0] == 0:

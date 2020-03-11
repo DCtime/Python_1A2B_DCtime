@@ -4,14 +4,24 @@ import time
 
 
 class Game:
+    # show_join_counter : int (class method)
+    # a variable to help adding commas
     show_join_counter = 0
 
     def __init__(self, players):
+        # guess : obj
+        # a object for using methods in GuessNumber class
         self.guess = GuessNumber()
-        self.__players = []
-        self.__current = None
+
+        # __players : list
+        # store players object
         self.__players = players
 
+        # __current : int
+        # the index of __players list, stores the current guessing object
+        self.__current = None
+
+        # show players that joined the game
         for i in self.__players:
             print(i.get_name(), end='')
 
@@ -19,14 +29,13 @@ class Game:
 
             if Game.show_join_counter != len(self.__players):
                 print(", ", end='')
-
         print()
-
         print("Joined the game")
         print()
         time.sleep(random.randint(1, 2))
 
     def start(self):
+        """ return a question """
         # make question
         print("making question...")
         self.guess.make_question()
@@ -51,6 +60,7 @@ class Game:
                 break
 
     def next_player(self):
+        """ switch player, changes the __current value """
         if self.__current is None:
             random.shuffle(self.__players)
             self.__current = random.randint(0, len(self.__players) - 1)  # start at 0
@@ -61,6 +71,7 @@ class Game:
                 self.__current = 0
 
     def end(self):
+        """ run this method when someone get 4A0B """
         print(self.__players[self.__current].get_name(), "Wins")
         print("Game Over")
         time.sleep(random.randint(1, 2))

@@ -23,5 +23,6 @@ for i in range(player_quantity):
     player_obj_list.append(obj)
 print()
 
+# start the game
 game = Game(player_obj_list)
 game.start()
