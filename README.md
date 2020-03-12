@@ -6,6 +6,8 @@ open Main.py to play
 
 2010/3/10 pre-alpha released
 
+New feature:
+
 - delay game performance (1~2 seconds)
 
 - shut down in 5 seconds after game over
