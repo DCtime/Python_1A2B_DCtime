@@ -34,7 +34,7 @@ class GuessNumber:
         """ print things, and change the __a's and __b's value """
 
         # check format
-        if len(set(ans)) != 4 or ans[0] == 0:
+        if len(set(ans)) != 4 or ans[0] == '0':
             print("Format Wrong")
             return 0
 
