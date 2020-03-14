@@ -50,9 +50,9 @@ class Game:
             print(self.__players[self.__current].get_name())
 
             # guessing, check_ans
-            print("Enter your answer:", end='')
+            print("Enter your answer (tap 'h' to show guessing history): ", end='')
             while self.guess.check_ans(self.__players[self.__current].guess()) == 0:  # if the format is wrong, None
-                print("Enter your answer:", end='')
+                print("Enter your answer (tap 'h' to show guessing history): ", end='')
 
             # check win
             if self.guess.get_a() == 4:
