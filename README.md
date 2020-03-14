@@ -4,9 +4,9 @@ my first game :)
 
 open Main.py to play
 
-2010/3/10 pre-alpha released
+2020/3/10 pre-alpha released
 
-New feature:
+#### New feature:
 
 - delay game performance (1~2 seconds)
 
