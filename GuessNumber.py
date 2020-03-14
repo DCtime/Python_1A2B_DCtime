@@ -16,6 +16,8 @@ class GuessNumber:
         # store the current players b's
         self.__b = None
 
+        self.__history_dict = {}
+
     def make_question(self):
         """ return a question for 1A2B """
         # check the question if its the right format:
@@ -32,10 +34,15 @@ class GuessNumber:
 
     def check_ans(self, ans):
         """ print things, and change the __a's and __b's value """
+        # when tap 'h', show guess history
+        if ans == 'h':
+            self.show_history()
+            return 0
 
         # check format
         if len(set(ans)) != 4 or ans[0] == '0':
             print("Format Wrong")
+            time.sleep(random.randint(1, 2))
             return 0
 
         # set A,B to 0
@@ -53,8 +60,20 @@ class GuessNumber:
             if i in set(self.__question):
                 self.__b += 1
 
-        print("format: Okay")
         print("----- [", self.__a, "A", self.__b, "B", "] -----")
+        print()
+
+        # place it into history dic
+        self.__history_dict[ans] = [self.__a, self.__b]
+
+        time.sleep(random.randint(1, 2))
+
+    def show_history(self):
+        print()
+        print(">>>>> Guess history <<<<<")
+        for key, value in self.__history_dict.items():
+            print("      ", end='')
+            print(key, " -> ", value[0], "A", value[1], "B", sep='')
         print()
         time.sleep(random.randint(1, 2))
 
