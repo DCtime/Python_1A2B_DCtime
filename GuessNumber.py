@@ -29,7 +29,7 @@ class GuessNumber:
                 if self.__question[0] != 0:
                     break
         print("Question Ready")
-        # print("del:", self.__question)   # for debug, show the answer of the round
+        print("del:", self.__question)   # for debug, show the answer of the round
         return self.__question
 
     def check_ans(self, ans):

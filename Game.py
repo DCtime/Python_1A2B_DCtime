@@ -29,6 +29,8 @@ class Game:
 
             if Game.show_join_counter != len(self.__players):
                 print(", ", end='')
+        # zeroing show_join_counter
+        Game.show_join_counter = 0
         print()
         print("Joined the game")
         print()
@@ -75,5 +77,4 @@ class Game:
         print(self.__players[self.__current].get_name(), "Wins")
         print("Game Over")
         time.sleep(random.randint(1, 2))
-        print("The Game will shut down in 5 sec")
-        time.sleep(5)
+
