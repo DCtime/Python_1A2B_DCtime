@@ -6,6 +6,9 @@ INFINITE = 999999999999999999999999999999999999999999999999999999999999999999999
 # player_obj_list
 # stores player objects
 player_obj_list = []
+# player_obj_list
+# stores player objects
+robot_obj_list = []
 # game : object list
 # store the game objects which program made during runtime
 game = []
