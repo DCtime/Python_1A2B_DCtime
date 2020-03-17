@@ -56,7 +56,7 @@ for j in range(0, INFINITE):
         print()
 
     # start the game
-    game.append(Game(player_obj_list))
+    game.append(Game(player_obj_list, robot_obj_list))
     game[j].start()
 
     print("Restart? Enter 'y' to restart, others to quit")
@@ -68,3 +68,4 @@ for j in range(0, INFINITE):
 
     # start zeroing
     player_obj_list = []
+    robot_obj_list = []

@@ -8,7 +8,7 @@ class Game:
     # a variable to help adding commas
     show_join_counter = 0
 
-    def __init__(self, players):
+    def __init__(self, players, robots):
         # guess : obj
         # a object for using methods in GuessNumber class
         self.guess = GuessNumber()
@@ -16,6 +16,10 @@ class Game:
         # __players : list
         # store players object
         self.__players = players
+
+        # __robots: list
+        # store robots object
+        self.__robots = robots
 
         # __current : int
         # the index of __players list, stores the current guessing object
@@ -29,11 +33,27 @@ class Game:
 
             if Game.show_join_counter != len(self.__players):
                 print(", ", end='')
-        # zeroing show_join_counter
-        Game.show_join_counter = 0
+
         print()
         print("Joined the game")
         print()
+
+        # zeroing show_join_counter
+        Game.show_join_counter = 0
+
+        # robots: if there is something in robots, return True
+        if robots:
+            for i in self.__robots:
+                print(i.get_name(), end='')
+
+                Game.show_join_counter += 1
+
+                if Game.show_join_counter != len(self.__robots):
+                    print(", ", end='')
+
+            print()
+            print("Joined the game (Robot)")
+            print()
         time.sleep(random.randint(1, 2))
 
     def start(self):
