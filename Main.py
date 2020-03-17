@@ -48,7 +48,7 @@ for j in range(0, INFINITE):
         # adding robots
         print("Enter Names")
 
-        for i in range(player_quantity):
+        for i in range(robot_quantity):
             print("Robot", i + 1, ".", sep='', end='')
             name = input()  # name : str, temporarily stores the name that user inputs
             obj = Robot(name)  # obj : Robot, temporarily stores the objects, ready to append to player_obj_list
