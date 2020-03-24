@@ -1,5 +1,6 @@
 from Entity import Entity
 import random
+import time
 
 
 class Robot(Entity):
@@ -22,6 +23,9 @@ class Robot(Entity):
             if len(set(self.__ans)) == 4:
                 if self.__ans[0] != 0:
                     break
+        time.sleep(random.randint(1, 2))
+        print(self.__ans)
+        time.sleep(random.randint(1, 2))
         return self.__ans
 
     # getter and setter

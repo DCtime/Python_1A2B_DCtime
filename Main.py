@@ -25,7 +25,7 @@ for j in range(0, INFINITE):
     print("Enter Names")
 
     for i in range(player_quantity):
-        print(i+1, ".", sep='', end='')
+        print(i+1, ": ", sep='', end='')
         name = input()  # name : str, temporarily stores the name that user inputs
         obj = Player(name)  # obj : Player, temporarily stores the objects, ready to append to player_obj_list
         player_obj_list.append(obj)
@@ -37,7 +37,7 @@ for j in range(0, INFINITE):
     # ask if wanna add robots into the game
     # ask_robot : str, temporarily
     # stores the answer of adding robot into this game
-    ask_robot = input("Wanna add robot into this game? Enter 'y' to add, others no")
+    ask_robot = input("Wanna add robot into this game? Enter 'y' to add, others no : ")
 
     if ask_robot == 'y':
         # robot_quantity : int
@@ -49,7 +49,7 @@ for j in range(0, INFINITE):
         print("Enter Names")
 
         for i in range(robot_quantity):
-            print("Robot", i + 1, ".", sep='', end='')
+            print("Robot ", i + 1, ": ", sep='', end='')
             name = input()  # name : str, temporarily stores the name that user inputs
             obj = Robot(name)  # obj : Robot, temporarily stores the objects, ready to append to player_obj_list
             robot_obj_list.append(obj)
