@@ -16,6 +16,8 @@ class GuessNumber:
         # store the current players b's
         self.__b = None
 
+        # __history_dict : str & list : int ([A ,B])
+        # stores player guessing history
         self.__history_dict = {}
 
     def make_question(self):
