@@ -1,4 +1,5 @@
-# Python_1A2B_DCtime
+# 1A2B Game `Made by DCtime,Using Python`
+
 
 my first game **">_<"**
 
@@ -6,9 +7,15 @@ my first game **">_<"**
 
 ### Whats new?
 
-pre-alpha v1.1 release at 2020/3/14
+pre-alpha v1.2 release at 2020/3/24
 
 ## Update Log:
+
+#### pre-alpha v1.2 feature (2020/3/24):
+
+- Robots are now added to the game, you can also name what you like **':)'**
+
+- Adding players interface beautify **':]'**
 
 #### pre-alpha v1.1 feature (2020/3/14):
 
