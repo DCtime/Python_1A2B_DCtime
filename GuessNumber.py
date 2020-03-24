@@ -16,6 +16,8 @@ class GuessNumber:
         # store the current players b's
         self.__b = None
 
+        # __history_dict : str & list : int ([A ,B])
+        # stores player guessing history
         self.__history_dict = {}
 
     def make_question(self):
@@ -29,7 +31,7 @@ class GuessNumber:
                 if self.__question[0] != 0:
                     break
         print("Question Ready")
-        # print("del:", self.__question)   # for debug, show the answer of the round
+        print("del:", self.__question)   # for debug, show the answer of the round
         return self.__question
 
     def check_ans(self, ans):
