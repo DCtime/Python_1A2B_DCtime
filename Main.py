@@ -1,9 +1,7 @@
 from Game import Game
 from Player import Player
 from Robot import Robot
-# INFINITE : int, final
-# this number is so big that you can imagine
-INFINITE = 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+
 # player_obj_list
 # stores player objects
 player_obj_list = []
@@ -13,12 +11,22 @@ robot_obj_list = []
 # game : object list
 # store the game objects which program made during runtime
 game = []
-for j in range(0, INFINITE):
+# times : int
+# stores how many times the game runs
+times = 0
+
+while 1:
     print("Welcome playing")
 
-    # player_quantity : int
-    # the quantity of players
-    player_quantity = int(input("How many players? "))
+    while 1:
+        try:
+            # player_quantity : int
+            # the quantity of players
+            player_quantity = int(input("How many players? "))
+        except ValueError:
+            print("Don't Enter things that isn't an number, please enter it again.")
+        else:
+            break
     print()
 
     # adding players
@@ -42,7 +50,13 @@ for j in range(0, INFINITE):
     if ask_robot == 'y':
         # robot_quantity : int
         # the quantity of robots
-        robot_quantity = int(input("How many robots? "))
+        while 1:
+            try:
+                robot_quantity = int(input("How many robots? "))
+            except ValueError:
+                print("Don't Enter things that isn't an number, please enter it again.")
+            else:
+                break
         print()
 
         # adding robots
@@ -57,7 +71,7 @@ for j in range(0, INFINITE):
 
     # start the game
     game.append(Game(player_obj_list, robot_obj_list))
-    game[j].start()
+    game[times].start()
 
     print("Restart? Enter 'y' to restart, others to quit")
     # restart_decision : str, temporarily
@@ -69,3 +83,6 @@ for j in range(0, INFINITE):
     # start zeroing
     player_obj_list = []
     robot_obj_list = []
+
+    # add one to times because of starting a new game
+    times += 1

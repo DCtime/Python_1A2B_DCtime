@@ -11,11 +11,14 @@ pre-alpha v1.2 release at 2020/3/24
 
 ## Update Log:
 
-#### pre-alpha v1.2 feature (2020/3/24):
+#### pre-alpha v1.2 feature (2020/4/7):
 
 - Robots are now added to the game, you can also name what you like **':)'**
 
 - Adding players interface beautify **':]'**
+
+- Exceptions, you can't break the game now._(if you find it, tell me on the issue)_
+
 
 #### pre-alpha v1.1 feature (2020/3/14):
 
