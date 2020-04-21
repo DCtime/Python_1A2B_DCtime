@@ -4,7 +4,7 @@ import tkinter as tk
 def open_welcome_window():
     def close_welcome_window():
         welcome_window.destroy()
-        open_add_player_window()
+        open_enter_name_window()
 
     # FOR DEBUG: we are now opening welcome window
     print("Open : Opening Welcome window")
@@ -43,7 +43,7 @@ def open_welcome_window():
         command=close_welcome_window
     )
 
-    # setting the situations of the widgets
+    # setting the location of the widgets
     label_game.pack()
     label_author.pack()
     button_start.pack(
@@ -55,97 +55,35 @@ def open_welcome_window():
     welcome_window.mainloop()
 
 
-def open_add_player_window():
-    def close_add_player_window():
-        player_quantity = entry_player_quantity.get()
-        robot_quantity = entry_robot_quantity.get()
-        print("player quantity = ", player_quantity)
-        print("robot quantity = ", robot_quantity)
-        add_player_window.destroy()
-        open_enter_name_window()
-
-    # FOR DEBUG : we are now opening add player window
-    print("Open : Opening Add player window")
-
-    """ add_player_window """
-    add_player_window = tk.Tk()
-    add_player_window.title("Add players")
-    add_player_window.geometry("400x200")
-    # add_player_window.resizable(0, 0)
-
-    # widgets in add_player_window
-
-    # label_player_quantity : Label object
-    # shows "Player's Quantity"
-    label_player_quantity = tk.Label(
-        add_player_window,
-        text="Player's Quantity:",
-        font="Helvetica 15 bold",
-        relief='groove'
-    )
-
-    # entry_player_quantity : Entry object
-    # enter player's quantity
-    entry_player_quantity = tk.Entry(
-        font="Helvetica 15"
-    )
-
-    # label_robot_quantity : Label object
-    # shows "Robot's Quantity"
-    label_robot_quantity = tk.Label(
-        add_player_window,
-        text="Robot's Quantity:",
-        font="Helvetica 15 bold",
-        relief='groove'
-    )
-    # entry_robot_quantity : Entry object
-    # enter robot's quantity
-    entry_robot_quantity = tk.Entry(
-        font="Helvetica 15"
-    )
-
-    button_enter = tk.Button(
-        add_player_window,
-        text="Enter",
-        font="Helvetica 15",
-        command=close_add_player_window
-    )
-
-    label_blank = tk.Label(
-        add_player_window
-    )
-
-    # packing widgets
-    label_player_quantity.grid(
-        row=0, column=0,
-    )
-
-    entry_player_quantity.grid(
-        row=0, column=1, columnspan=2
-    )
-
-    label_robot_quantity.grid(
-        row=1, column=0,
-    )
-
-    entry_robot_quantity.grid(
-        row=1, column=1, columnspan=2
-    )
-
-    label_blank.grid(
-        row=2, column=0, columnspan=2
-    )
-    button_enter.grid(
-        row=3, column=1, sticky='w'
-    )
-
-    # keep the window
-    add_player_window.mainloop()
-
-
 def open_enter_name_window():
     def close_enter_name_window():
-        pass
+        enter_name_window.destroy()
+
+    def add_player_name():
+        player = entry_player_name.get()
+        if len(player.strip()) == 0:
+            return
+        list_players.insert(tk.END, player)
+        entry_player_name.delete(0, tk.END)
+
+    def add_robot_name():
+        robot = entry_robot_name.get()
+        if len(robot.strip()) == 0:
+            return
+        list_robots.insert(tk.END, robot)
+        entry_robot_name.delete(0, tk.END)
+
+    def delete_player():
+        player_index = list_players.curselection()
+        if len(player_index) == 0:
+            return
+        list_players.delete(player_index)
+
+    def delete_robot():
+        robot_index = list_robots.curselection()
+        if len(robot_index) == 0:
+            return
+        list_robots.delete(robot_index)
 
     # FOR DEBUG: we are now opening enter name window
     print("Open : Opening Enter name window")
@@ -154,8 +92,141 @@ def open_enter_name_window():
     # the start of the enter name window
     enter_name_window = tk.Tk()
     enter_name_window.title("Enter names")
-    enter_name_window.geometry("1000x1000")
+    enter_name_window.geometry("800x500")
+    enter_name_window.resizable(0, 0)
 
-    
+    # ---- making widgets for open enter name window ----
+
+    # label_player_name
+    # shows "Adding players name"
+    label_player_name = tk.Label(
+        enter_name_window,
+        text='Adding players name',
+        font="Helvetica 20 bold"
+    )
+
+    # entry_player_name
+    # enters player's name
+    entry_player_name = tk.Entry(
+        enter_name_window,
+        font="Helvetica 20"
+    )
+
+    # button_add_player
+    # adds player's name to the list
+    button_add_player = tk.Button(
+        enter_name_window,
+        text="Add",
+        font="Helvetica 20",
+        command=add_player_name
+    )
+
+    # list_players
+    # show the players
+    list_players = tk.Listbox(
+        enter_name_window,
+        font="Helvetica 20"
+    )
+
+    # button_delete_player
+    # delete selected player
+    button_delete_player = tk.Button(
+        enter_name_window,
+        text="Delete Player",
+        font="Helvetica 20",
+        command=delete_player
+    )
+
+    # label_robot_name
+    # shows "Adding robots name"
+    label_robot_name = tk.Label(
+        enter_name_window,
+        text='Adding robots name',
+        font="Helvetica 20 bold"
+    )
+
+    # entry_robot_name
+    # enters robot's name
+    entry_robot_name = tk.Entry(
+        enter_name_window,
+        font="Helvetica 20"
+    )
+
+    # button_add_robot
+    # adds robot's name to the list
+    button_add_robot = tk.Button(
+        enter_name_window,
+        text="Add",
+        font="Helvetica 20",
+        command=add_robot_name
+    )
+
+    # list_robots
+    # show the robots
+    list_robots = tk.Listbox(
+        enter_name_window,
+        font="Helvetica 20"
+    )
+
+    # button_delete_robot
+    # delete selected robot
+    button_delete_robot = tk.Button(
+        enter_name_window,
+        text="Delete Robot",
+        font="Helvetica 20",
+        command=delete_robot
+    )
+
+    # label_separate
+    # separate the two entries
+    label_separate = tk.Label(
+        enter_name_window
+    )
+
+    # ---- setting locations ----
+    label_player_name.grid(
+        row=0, column=0, columnspan=2
+    )
+
+    entry_player_name.grid(
+        row=1, column=0, sticky='w'
+    )
+
+    button_add_player.grid(
+        row=1, column=1, padx=5
+    )
+
+    list_players.grid(
+        row=2, column=0, columnspan=2, sticky='w'+'e'+'s'
+    )
+
+    button_delete_player.grid(
+        row=3, column=0, columnspan=2
+    )
+
+    label_robot_name.grid(
+        row=0, column=3, columnspan=2
+    )
+
+    entry_robot_name.grid(
+        row=1, column=3, sticky='w'
+    )
+
+    button_add_robot.grid(
+        row=1, column=4, padx=5
+    )
+
+    list_robots.grid(
+        row=2, column=3, columnspan=2, sticky='w'+'e'+'s'
+    )
+
+    button_delete_robot.grid(
+        row=3, column=2, columnspan=2
+    )
+
+    label_separate.grid(
+        row=0, column=2, rowspan=4, padx=5
+    )
+
 """ >>> Showing the windows <<< """
 open_welcome_window()
