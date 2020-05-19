@@ -1,4 +1,13 @@
 import tkinter as tk
+import tkinter.ttk as ttk
+
+# players : tuple (global)
+# stores the playing players
+players = ()
+
+# robots : tuple (global)
+# stores the playing robots
+robots = ()
 
 
 def open_welcome_window():
@@ -57,6 +66,13 @@ def open_welcome_window():
 
 def open_enter_name_window():
     def close_enter_name_window():
+        """ close the enter name window and store the players and the robots """
+        list_players.selection_set(0, tk.END)
+        global players
+        players = list_players.get(0, tk.END)
+        list_robots.selection_set(0, tk.END)
+        global robots
+        robots = list_robots.get(0, tk.END)
         enter_name_window.destroy()
 
     def add_player_name():
@@ -92,7 +108,7 @@ def open_enter_name_window():
     # the start of the enter name window
     enter_name_window = tk.Tk()
     enter_name_window.title("Enter names")
-    enter_name_window.geometry("800x500")
+    enter_name_window.geometry("890x550")
     enter_name_window.resizable(0, 0)
 
     # ---- making widgets for open enter name window ----
@@ -179,54 +195,34 @@ def open_enter_name_window():
 
     # label_separate
     # separate the two entries
-    label_separate = tk.Label(
+    separater_list = ttk.Separator(
         enter_name_window
     )
 
+    # button_next
+    # go to next page
+    button_next = tk.Button(
+        enter_name_window,
+        text="Next",
+        font="Helvetica 20",
+        command=close_enter_name_window
+    )
+
     # ---- setting locations ----
-    label_player_name.grid(
-        row=0, column=0, columnspan=2
-    )
+    label_player_name.grid(row=0, column=0, columnspan=2, padx=5)
+    entry_player_name.grid(row=1, column=0, sticky='w', padx=10)
+    button_add_player.grid(row=1, column=1, padx=5)
+    list_players.grid(row=2, column=0, columnspan=2, sticky='w'+'e'+'s', padx=10)
+    button_delete_player.grid(row=3, column=0, columnspan=2)
+    label_robot_name.grid(row=0, column=3, columnspan=2)
+    entry_robot_name.grid(row=1, column=3, sticky='w')
+    button_add_robot.grid(row=1, column=4, padx=5)
+    list_robots.grid(row=2, column=3, columnspan=2, sticky='w'+'e'+'s')
+    button_delete_robot.grid(row=3, column=2, columnspan=2, sticky='e')
+    separater_list.grid(row=0, column=2, rowspan=4, padx=5)
+    button_next.grid(row=4, column=2)
 
-    entry_player_name.grid(
-        row=1, column=0, sticky='w'
-    )
-
-    button_add_player.grid(
-        row=1, column=1, padx=5
-    )
-
-    list_players.grid(
-        row=2, column=0, columnspan=2, sticky='w'+'e'+'s'
-    )
-
-    button_delete_player.grid(
-        row=3, column=0, columnspan=2
-    )
-
-    label_robot_name.grid(
-        row=0, column=3, columnspan=2
-    )
-
-    entry_robot_name.grid(
-        row=1, column=3, sticky='w'
-    )
-
-    button_add_robot.grid(
-        row=1, column=4, padx=5
-    )
-
-    list_robots.grid(
-        row=2, column=3, columnspan=2, sticky='w'+'e'+'s'
-    )
-
-    button_delete_robot.grid(
-        row=3, column=2, columnspan=2
-    )
-
-    label_separate.grid(
-        row=0, column=2, rowspan=4, padx=5
-    )
 
 """ >>> Showing the windows <<< """
 open_welcome_window()
+print(players, robots)
