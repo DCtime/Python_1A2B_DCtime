@@ -222,6 +222,23 @@ def open_enter_name_window():
     separater_list.grid(row=0, column=2, rowspan=4, padx=5)
     button_next.grid(row=4, column=2)
 
+def open_playing_window():
+    def close_enter_name_window():
+        pass
+
+    # FOR DEBUG: we are now opening enter name window
+    print("Open : Opening Playing Window")
+
+    """ Playing window """
+    # the start of the enter name window
+    playing_window = tk.Tk()
+    playing_window.title("1A2B Game")
+    playing_window.geometry("890x550")
+    playing_window.resizable(0, 0)
+    
+    # ---- making widgets for open enter name window ----
+
+
 
 """ >>> Showing the windows <<< """
 open_welcome_window()
